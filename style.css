@@ -60,7 +60,7 @@ a.anchor {
 .home {
   height: 100vh;
   background-color: #1c320a;
-  background-image: url("Images/triliumPoisonIvyMultiplied.jpg");
+  background-image: url('Images/small/old/triliumPoisonIvyMultiplied.jpg');
   background-position: center;
 }
 
@@ -102,9 +102,13 @@ right: 0;
 .spacer {
   height: 20vh;
   background-color: #22370e;
-  background-image: url("Images/poisonIvyMultiplied.jpg");
   background-position: center;
 }
+
+.spacer {background-image: url('Images/small/jpg/poisonIvyMultiplied.jpg');}
+  @supports (background-image: -webkit-image-set(url('Images/small/webp/poisonIvyMultiplied.webp') 1x)) {
+    .spacer {background-image: -webkit-image-set(url('Images/small/webp/poisonIvyMultiplied.webp') 1x) }
+  }
 
 .portfolio h1 {
   text-align: center;

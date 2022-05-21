@@ -34,6 +34,7 @@
     });
     var lightBox = document.getElementById('lightBox')
     lightBox.addEventListener('show.bs.modal', function(event) {
-      document.getElementById("lightBoxImage").src = event.relatedTarget.src;
+      /* Display full size image not small one */
+      document.getElementById("lightBoxImage").src = event.relatedTarget.src.replace(/small\/old\/|small\/webp\//, "");
     });  
   });
