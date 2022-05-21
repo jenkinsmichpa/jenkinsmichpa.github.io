@@ -83,7 +83,7 @@ right: 0;
 }
 
 .home img {
-  height: 170px;
+  height: 200px;
 }
 
 .home h1 {
@@ -99,15 +99,15 @@ right: 0;
   font-weight: bold;
 }
 
-.knowledge {
-  background-color: #e9ecef;
-}
-
 .spacer {
   height: 20vh;
   background-color: #22370e;
   background-image: url("Images/poisonIvyMultiplied.jpg");
   background-position: center;
+}
+
+.portfolio h1 {
+  text-align: center;
 }
 
 .portfolio .jumbotron .row {
@@ -141,16 +141,9 @@ right: 0;
   display: inline;
 }
 
-.contact h3 {
-  display: inline;
-}
-
-.contact .fa-envelope {
-  font-size: 3em;
-}
-
-footer {
-  background-color: #e9ecef;
+.contact .bi-envelope-fill {
+  font-size: 2.5em;
+  margin-right: 9px;
 }
 
 footer a {

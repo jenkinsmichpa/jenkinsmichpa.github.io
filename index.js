@@ -2,19 +2,15 @@
   document.addEventListener("DOMContentLoaded", function(event) {
     var navbarTransition = function() {
       if (window.pageYOffset >= navbar.offsetHeight) {
-        navbar.classList.remove("navbar-dark", "bg-transparent");
-        navbar.classList.add("navbar-light", "bg-light");
+        navbar.classList.remove("bg-transparent");
+        navbar.classList.add("navbar-dark", "bg-dark", "shadow");
         navbarContainer.classList.remove("pt-2");
         navbarContainer.classList.add("pt-1");
-        document.querySelector('.path').style.stroke = "black";
-        document.querySelector('.fill').style.fill = "black";
       } else {
-        navbar.classList.remove("navbar-light", "bg-light");
+        navbar.classList.remove("navbar-dark", "bg-dark", "shadow");
         navbar.classList.add("navbar-dark", "bg-transparent");
         navbarContainer.classList.remove("pt-1");
         navbarContainer.classList.add("pt-2");
-        document.querySelector('.path').style.stroke = "white";
-        document.querySelector('.fill').style.fill = "white";
       }
     }
     var parallax = function() {
@@ -36,7 +32,8 @@
       /* Reoccuring parallax */
       parallax();
     });
-    $('#lightBox').on('show.bs.modal', function(event) {
+    var lightBox = document.getElementById('lightBox')
+    lightBox.addEventListener('show.bs.modal', function(event) {
       document.getElementById("lightBoxImage").src = event.relatedTarget.src;
-    });
+    });  
   });
