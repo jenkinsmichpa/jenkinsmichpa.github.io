@@ -141,11 +141,26 @@ right: 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.contact h3 {
+.contact h4 {
   display: inline;
 }
 
-.contact .bi-envelope-fill {
+.contact a {
+  text-decoration: none;
+  color: black;
+}
+
+.obfuscate span {
+  display: none;
+}
+
+.obfuscate {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+
+.contact .big-icon {
   font-size: 2.5em;
   margin-right: 9px;
 }
