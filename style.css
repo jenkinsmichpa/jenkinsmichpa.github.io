@@ -131,6 +131,7 @@ right: 0;
 
 .portfolio img {
   transition: transform .2s;
+  height auto;
 }
 
 .portfolio img:hover {
