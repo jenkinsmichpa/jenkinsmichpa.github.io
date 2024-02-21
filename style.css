@@ -103,6 +103,7 @@ right: 0;
   height: 20vh;
   background-color: #22370e;
   background-position: center;
+  padding: 0px;
 }
 
 .spacer {background-image: url('Images/small/jpg/poisonIvyMultiplied.jpg');}
