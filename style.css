@@ -110,6 +110,12 @@ right: 0;
     .spacer {background-image: -webkit-image-set(url('Images/small/webp/poisonIvyMultiplied.webp') 1x) }
   }
 
+.spacer-blur {
+  backdrop-filter: blur(6px);
+  height: 100%;
+  width: 100%;
+}
+
 .portfolio h1 {
   text-align: center;
 }
@@ -131,7 +137,7 @@ right: 0;
 
 .portfolio img {
   transition: transform .2s;
-  height auto;
+  height: auto;
 }
 
 .portfolio img:hover {
