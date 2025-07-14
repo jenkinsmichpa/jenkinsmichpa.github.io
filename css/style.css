@@ -1,0 +1,238 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.card,
+.modal-content {
+  border-radius: 1rem;
+}
+
+.card-img-top {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  margin-left: calc(var(--bs-card-spacer-x) * -1);
+  margin-right: calc(var(--bs-card-spacer-x) * -1);
+  width: calc(100% + (var(--bs-card-spacer-x) * 2));
+  margin-top: calc(var(--bs-card-spacer-y) * -1);
+}
+
+.accordion-button,
+.accordion,
+.accordion-item {
+  border-radius: 1rem !important;
+}
+
+.bd-mode-toggle {
+  z-index: 1500;
+
+  .bi {
+    width: 1em;
+    height: 1em;
+    vertical-align: -.125em;
+    fill: currentColor;
+  }
+
+  .dropdown-menu .active .bi {
+    display: block !important
+  }
+}
+
+.bg-transparent {
+  transition: background-color 0.3s linear;
+}
+
+.bg-body {
+  transition: background-color 0.3s linear;
+}
+
+.navbar-toggler {
+  border-style: none;
+}
+
+.logo {
+  fill-opacity: 0;
+  stroke-dasharray: 360.8721923828125;
+  stroke-dashoffset: 360.8721923828125;
+  animation: draw 2.5s ease-in-out 1s forwards;
+}
+
+.navbar-brand svg {
+  margin-top: -12px;
+  margin-bottom: -12px;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 360.8721923828125;
+  }
+
+  80% {
+    stroke-dashoffset: 0;
+    fill-opacity: 0;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+
+.navbar .navbar-nav .nav-link {
+  position: relative;
+}
+
+.navbar .navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover::after,
+.navbar .navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+@media (max-width: 767.98px) {
+  .navbar .navbar-nav .nav-link::after {
+    display: none;
+  }
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -64px;
+  visibility: hidden;
+}
+
+#home {
+  top: 0px;
+}
+
+.parallax {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home {
+  height: 100vh;
+  background-color: #1c320a;
+  background-image: url('../Images/small/old/triliumPoisonIvyMultiplied.jpg');
+  background-position: center;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  left: 0;
+  right: 0;
+}
+
+.border-3 {
+  border-width: 3px !important;
+}
+
+.home img {
+  height: 200px;
+}
+
+.home h1 {
+  font-size: 3em;
+}
+
+.text-grey {
+  color: #e9ecef;
+}
+
+ul.list-unstyled {
+  list-style: none;
+}
+
+.purdue {
+  color: #98700D;
+  font-weight: bold;
+}
+
+.spacer {
+  height: 10vh;
+  background-color: #22370e;
+  background-position: center;
+  padding: 0px;
+}
+
+.spacer {
+  background-image: url('../Images/small/jpg/poisonIvyMultiplied.jpg');
+}
+
+@supports (background-image: -webkit-image-set(url('../Images/small/webp/poisonIvyMultiplied.webp') 1x)) {
+  .spacer {
+    background-image: -webkit-image-set(url('../Images/small/webp/poisonIvyMultiplied.webp') 1x)
+  }
+}
+
+.spacer-blur {
+  backdrop-filter: blur(6px);
+  height: 100%;
+  width: 100%;
+}
+
+.portfolio h1 {
+  text-align: center;
+}
+
+.portfolio .jumbotron .row {
+  margin: 0px;
+}
+
+.nav-pills .nav-link {
+  transition: background-color .5s;
+  font-weight: bold;
+}
+
+.portfolio img {
+  transition: transform .2s;
+  height: auto;
+}
+
+.portfolio img:hover {
+  transform: scale(1.05);
+}
+
+.hard-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.contact h1 {
+  text-align: center;
+}
+
+.obfuscate span {
+  display: none;
+}
+
+.obfuscate {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.contact .big-icon {
+  font-size: 2.5em;
+  margin-right: 9px;
+}
+
+footer a {
+  display: inline-block;
+}
