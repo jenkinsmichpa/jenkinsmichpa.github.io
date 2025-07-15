@@ -41,11 +41,11 @@ html {
   }
 }
 
-.bg-transparent {
+.navbar.bg-transparent {
   transition: background-color 0.3s linear;
 }
 
-.bg-body {
+.navbar.bg-body {
   transition: background-color 0.3s linear;
 }
 
