@@ -20,10 +20,28 @@ html {
   margin-top: calc(var(--bs-card-spacer-y) * -1);
 }
 
-.accordion-button,
-.accordion,
-.accordion-item {
+.accordion {
   border-radius: 1rem !important;
+}
+
+.accordion-item:first-child {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+}
+
+.accordion-item:last-child {
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
+}
+
+.accordion-item:first-child .accordion-button {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+}
+
+.accordion-item:last-child .accordion-button.collapsed {
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
 }
 
 .bd-mode-toggle {
