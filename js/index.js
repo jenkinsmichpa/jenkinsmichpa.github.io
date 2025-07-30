@@ -1,10 +1,27 @@
 "use strict";
-/* Set copyright year */
-document.getElementById('copyrightYear').textContent = new Date().getFullYear();
-/* Perform JS half of antispam operations */
-document.getElementById("riversong").innerHTML = atob('WvA4AzD7WvA4AzL7WvA4AwZ7WaOypzyiMQfzV3t2LmfzV3t2BGfzV3t2ZGfzV3t2MQf8p3Ouow5gMJkiMUx8Y3AjLJ4+WvA4Awp7WzAioJ1uqQfzV3t2ZGfzV3t3ZQfzV3t2BQfzV3t2ZmfzV3t2BGfzV3t2MQf8p3Ouow5jo25xCP9mpTShCvLwrQpmBlLwrQMyBlLwrQL5BlLwrQMvBlLwrQMyBlLwrQL1BlLwrQMuBjb'.replace(/[a-zA-Z]/g, function (c) { return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26); }))
-document.addEventListener("DOMContentLoaded", function (event) {
-  var navbarTransition = function () {
+
+/* Utility Functions */
+function rot13(str) {
+  return str.replace(/[a-zA-Z]/g, c => {
+    const base = c <= 'Z' ? 65 : 97;
+    return String.fromCharCode(base + ((c.charCodeAt(0) - base + 13) % 26));
+  });
+}
+
+function decodeAndInsertEmail() {
+  const obfuscated = 'WvA4AzD7WvA4AzL7WvA4AwZ7WaOypzyiMQfzV3t2LmfzV3t2BGfzV3t2ZGfzV3t2MQf8p3Ouow5gMJkiMUx8Y3AjLJ4+WvA4Awp7WzAioJ1uqQfzV3t2ZGfzV3t3ZQfzV3t2BQfzV3t2ZmfzV3t2BGfzV3t2MQf8p3Ouow5jo25xCP9mpTShCvLwrQpmBlLwrQMyBlLwrQL5BlLwrQMvBlLwrQMyBlLwrQL1BlLwrQMuBjb';
+  const decoded = atob(rot13(obfuscated));
+  document.getElementById("riversong").innerHTML = decoded;
+}
+
+function setCopyrightYear() {
+  const year = new Date().getFullYear();
+  document.getElementById('copyrightYear').textContent = year;
+}
+
+/* UI Effects */
+function setupNavbar(navbar) {
+  const updateNavbar = () => {
     if (window.pageYOffset >= navbar.offsetHeight) {
       navbar.classList.remove("bg-transparent");
       navbar.classList.add("bg-body", "shadow");
@@ -14,38 +31,63 @@ document.addEventListener("DOMContentLoaded", function (event) {
       navbar.classList.add("bg-transparent");
       navbar.setAttribute('data-bs-theme', 'dark');
     }
-  }
-  var parallax = function () {
-    var scrollHeight = window.pageYOffset;
-    parallaxes.forEach(function (element) {
-      element.style.backgroundPositionY = (scrollHeight - element.offsetTop) / 3 + "px";
+  };
+
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar);
+}
+
+function setupParallax(parallaxes) {
+  let ticking = false;
+
+  const updateParallax = () => {
+    const scrollY = window.pageYOffset;
+    parallaxes.forEach(el => {
+      const offsetTop = el.offsetTop;
+      el.style.backgroundPositionY = `${(scrollY - offsetTop) / 3}px`;
     });
-  }
-  /* Initial navbar transition */
-  var navbar = document.getElementById("navbar");
-  var navbarContainer = document.getElementById("navbarContainer");
-  navbarTransition();
-  /* Initial parallax */
-  var parallaxes = document.querySelectorAll(".parallax");
-  parallax();
-  window.addEventListener("scroll", function () {
-    /* Reoccuring navbar transition */
-    navbarTransition();
-    /* Reoccuring parallax */
-    parallax();
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  };
+
+  updateParallax();
+  window.addEventListener("scroll", onScroll);
+}
+
+function setupLightbox(lightBox) {
+  lightBox.addEventListener('show.bs.modal', event => {
+    const fullImageSrc = event.relatedTarget.src.replace(/small\/old\/|small\/webp\//, "");
+    document.getElementById("lightBoxImage").src = fullImageSrc;
   });
-  var lightBox = document.getElementById('lightBox')
-  lightBox.addEventListener('show.bs.modal', function (event) {
-    /* Display full size image not small one */
-    document.getElementById("lightBoxImage").src = event.relatedTarget.src.replace(/small\/old\/|small\/webp\//, "");
+}
+
+function setupScrollSpyRefresh() {
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(() => {
+        bootstrap.ScrollSpy.getInstance(document.body)?.refresh();
+      }, 300);
+    });
   });
-});
-/* Add listener to update ScrollSpy active element when user clicks a link */
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    /* Small timeout to let the scroll settle */
-    setTimeout(() => {
-      bootstrap.ScrollSpy.getInstance(document.body)?.refresh();
-    }, 300);
-  });
+}
+
+/* Main */
+document.addEventListener("DOMContentLoaded", () => {
+  setCopyrightYear();
+  decodeAndInsertEmail();
+
+  const navbar = document.getElementById("navbar");
+  const parallaxes = document.querySelectorAll(".parallax");
+  const lightBox = document.getElementById("lightBox");
+
+  setupNavbar(navbar);
+  setupParallax(parallaxes);
+  setupLightbox(lightBox);
+  setupScrollSpyRefresh();
 });

@@ -21,27 +21,30 @@ html {
 }
 
 .accordion {
-  border-radius: 1rem !important;
+  border-radius: 1.25rem !important;
 }
 
 .accordion-item:first-child {
-  border-top-left-radius: 1rem !important;
-  border-top-right-radius: 1rem !important;
+  border-top-left-radius: 1.25rem !important;
+  border-top-right-radius: 1.25rem !important;
 }
 
 .accordion-item:last-child {
-  border-bottom-left-radius: 1rem !important;
-  border-bottom-right-radius: 1rem !important;
+  border-bottom-left-radius: 1.25rem !important;
+  border-bottom-right-radius: 1.25rem !important;
 }
-
 .accordion-item:first-child .accordion-button {
-  border-top-left-radius: 1rem !important;
-  border-top-right-radius: 1rem !important;
+  border-top-left-radius: 1.25rem !important;
+  border-top-right-radius: 1.25rem !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
 .accordion-item:last-child .accordion-button.collapsed {
-  border-bottom-left-radius: 1rem !important;
-  border-bottom-right-radius: 1rem !important;
+  border-bottom-left-radius: 1.25rem !important;
+  border-bottom-right-radius: 1.25rem !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
 }
 
 .bd-mode-toggle {
